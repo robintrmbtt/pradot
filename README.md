@@ -57,7 +57,7 @@ Check the configuration files in the ```config/``` to see what are the options y
 ### Ensembling
 
 With this implementation, it is possible to run a multi-scale model, for instance by setting ```model.out_indices=[2,3]``` in the configuration file, but it is not possible to use multiple values of $\alpha$. The file ```pradot/ensemble_experiments.py``` allows to ensemble the predictions of multiple experiements and compute the performance of the aggregated model. 
-To reproduce the performance of the final PRADOT model, you should first train four models with the following parameters: $(\text{out\_ind}, \alpha) = (2, 0); (2, 0.3); (3, 0.3); (3, 0.3)$. Then, you can ensemble their predictions with:
+To reproduce the performance of the final PRADOT model, you should first train four models with the following parameters: $(\text{out ind}, \alpha) = (2, 0); (2, 0.3); (3, 0.3); (3, 0.3)$. Then, you can ensemble their predictions with:
 
 ```
 python pradot/ensemble_experiements.py /path/to/save/folder --exp_path /path/to/exp/out_ind=2_alpha=0 /path/to/exp/out_ind=2_alpha=0. /path/to/exp/out_ind=2_alpha=0.3 /path/to/exp/out_ind=3_alpha=0 /path/to/exp/out_ind=3_alpha=0.3
