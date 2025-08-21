@@ -6,8 +6,7 @@ This repo is the official Pytorch implementation of the papier *Learning local a
 
 &nbsp;
 
-### Installation
----
+## Installation
 
 The code has been developped and tested with Python=3.10.13, Numpy=1.26.4, Pytorch=2.2.0, Lightning=2.3.3 and POT=0.9.5.
 
@@ -32,10 +31,9 @@ export pradot_mvtecad_loco="/path/to/mvtecad_loco/data"
 export pradot_results="/path/to/save/folder"
 ```
 
-### Usage
----
+## Usage
 
-#### Training and test
+### Training and test
 
 The code uses Hydra and Lightning for the training and evaluation. You can run both as follows:
 ```
@@ -46,7 +44,7 @@ where the parameter ```+task``` is required and can be set to ```mvtecad``` or `
 
 By default, the evaluation computes all the graphs shown in the article, that is, performance metrics, embedding-to-prototype assignments, prototype reconstruction, image recontruction and UMAP projection. You can modify this behaviour in the ```task``` parameter of the configuration.
 
-#### Configuration
+### Configuration
 
 With Hydra, you can overwrites any parameter of the default configuration file. For instance, you can change the parameter $\alpha$ and the number of prototypes:
 
@@ -56,7 +54,7 @@ python pradot/train.py +task=mvtecad data.obj=carpet model.alpha=0.2 model.encod
 
 Check the configuration files in the ```config/``` to see what are the options you can play with.
 
-#### Ensembling
+### Ensembling
 
 With this implementation, it is possible to run a multi-scale model, for instance by setting ```model.out_indices=[2,3]``` in the configuration file, but it is not possible to use multiple values of $\alpha$. The file ```pradot/ensemble_experiments.py``` allows to ensemble the predictions of multiple experiements and compute the performance of the aggregated model. 
 To reproduce the performance of the final PRADOT model, you should first train four models with the following parameters: $(\text{out\_ind}, \alpha) = (2, 0); (2, 0.3); (3, 0.3); (3, 0.3)$. Then, you can ensemble their predictions with:
@@ -67,10 +65,9 @@ python pradot/ensemble_experiements.py /path/to/save/folder --exp_path /path/to/
 
 &nbsp;
 
-### Results
----
+## Results
 
-#### MVTec AD LOCO
+### MVTec AD LOCO
 |                | Classification (AU-ROC) | Localization (AU-sPRO) |
 |:--------------:|:--------------:|:------------:|
 | Breakfast box  | 81.6 | 56.9  |
@@ -80,7 +77,7 @@ python pradot/ensemble_experiements.py /path/to/save/folder --exp_path /path/to/
 | Connectors     | 79.6 | 53.9  |
 | **Mean**           | **78.9** | **52.6**  |
 
-#### MVTec AD
+### MVTec AD
 |                | Classification (AU-ROC) | Localization (AU-ROC) |
 |:--------------:|:--------------:|:------------:|
 | Carpet    | 99.9 | 99.2  |
@@ -104,7 +101,6 @@ python pradot/ensemble_experiements.py /path/to/save/folder --exp_path /path/to/
 
 &nbsp;
 
-### Reproducibility
----
+## Reproducibility
 
 We provide in the ```scipts/``` folder all the commands used to run the experiments presented in the paper, including the ablation studies. All the experiments were launched on 32 GB NVIDIA V100 GPUs.
