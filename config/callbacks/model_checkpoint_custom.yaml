@@ -1,0 +1,9 @@
+model_checkpoint:
+  _target_: pradot.utils.ModelCheckpointCustom
+  dirpath: ${hydra:runtime.output_dir}
+  filename: "best"
+  monitor: "val/loss"
+  verbose: True
+  save_last: True
+  save_top_k: 1
+  mode: "min"

@@ -1,0 +1,7 @@
+_target_: lightning.pytorch.trainer.Trainer
+accelerator: gpu
+enable_progress_bar: True
+max_epochs: 50
+default_root_dir: ${hydra:runtime.output_dir}
+check_val_every_n_epoch: 1
+log_every_n_steps: 1

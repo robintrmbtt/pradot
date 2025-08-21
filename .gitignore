@@ -1,0 +1,13 @@
+results*
+__pycache__
+test*
+.idea/
+.vscode/
+*.ckpt
+outputs/
+save*
+*.npz
+*.log
+lightning_logs/
+figures/
+*.txt

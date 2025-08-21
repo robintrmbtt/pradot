@@ -1,0 +1,28 @@
+# @package _global_
+
+# disable callbacks and loggers during debugging
+logger: null
+
+# sets level of all command line loggers to 'DEBUG'
+# https://hydra.cc/docs/tutorials/basic/running_your_app/logging/
+hydra:
+  job_logging:
+    root:
+      level: DEBUG
+    # the two following packages were returning annoying logs
+    loggers:
+      PIL:
+        level: ERROR
+      matplotlib.font_manager:
+        level: ERROR
+    
+
+  # use this to also set hydra loggers to 'DEBUG'
+  # verbose: True
+
+trainer:
+  max_epochs: 2
+  detect_anomaly: true # raise exception if NaN or +/-inf is detected in any tensor
+  limit_train_batches: 2
+  limit_val_batches: 2
+  limit_test_batches: 2 

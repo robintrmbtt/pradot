@@ -1,0 +1,28 @@
+# @package _global_
+project_name: pradot_mvtecad
+
+defaults:
+  - override /data: mvtecad
+  - override /model: pradot_img
+
+callbacks:
+  mvtecad_eval:
+    _target_: pradot.data.mvtecad.EvalMVTecAD
+    show_assignment: True
+    show_proto_recons: True
+    show_images_recons: True
+    compress: True
+    # projection_params: null
+    projection_params:
+      gt_thr: 0.3
+      n_normal: 2000
+      n_abnormal: 2000
+      n_prototypes: 600
+      projections:
+        umap:
+          n_neighbors: [10, 15, 20]
+          min_dist: [0.1, 0.3, 0.5, 0.7]
+          n_images: 1
+        # tsne:
+        #   perplexity: [5, 10, 15]
+        #   n_images: 5

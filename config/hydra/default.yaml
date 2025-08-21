@@ -1,0 +1,9 @@
+defaults:
+  - override hydra_logging: colorlog
+  - override job_logging: colorlog
+
+run: 
+  dir: ${root_dir}/${project_name}/${now:%Y-%m-%d_%H-%M-%S-%f}
+sweep:
+  dir: ${root_dir}/${project_name}/${now:%Y-%m-%d_%H-%M-%S-%f}
+  subdir: ${hydra.job.num}

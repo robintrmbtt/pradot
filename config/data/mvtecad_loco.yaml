@@ -1,0 +1,7 @@
+_target_: pradot.data.mvtecad_loco.MVTecLocoDataModule
+data_path: ${oc.env:pradot_mvtecad_loco}
+obj: 'breakfast_box'
+img_size: [224,224]
+n_train: null # used for testing
+n_test: null # used for testing
+batch_size: 64

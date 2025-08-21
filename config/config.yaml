@@ -1,0 +1,16 @@
+root_dir: ${oc.env:pradot_results}
+device: cuda
+seed: 0
+train: True
+test: True
+project_name: ???
+
+defaults:
+    - data: ???
+    - model: ???
+    - trainer: default
+    - optimizer: adam # not used
+    - callbacks: default
+    - logger: None
+    - hydra: default
+

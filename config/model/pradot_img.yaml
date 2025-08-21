@@ -1,0 +1,16 @@
+_target_: pradot.models.pradot_img.PRADOT_IMG
+
+encoder: 
+  _target_: pradot.models.pradot_img.ProtoEncoder
+  backbone: resnet50
+  pretrained: True
+  freeze_backbone: True
+  out_indices: [3,]
+  nb_proto: 16
+
+alpha: 0.3
+fixed_structure: True
+ema: 0.95
+eps: 0.01
+ot_max_iter: 100
+feature_dist_fn: cosine
