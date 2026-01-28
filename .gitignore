@@ -11,3 +11,4 @@ save*
 lightning_logs/
 figures/
 *.txt
+!requirements.txt
